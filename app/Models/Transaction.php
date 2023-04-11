@@ -68,7 +68,7 @@ class Transaction extends Model
     public function getMinimumDownPayment()
     {
         $dayDifference = Helper::getDateDifference($this->check_in, $this->check_out);
-        $minimumDownPayment = ($this->room->price * $dayDifference) * 0.15;
+        $minimumDownPayment = ($this->room->price * $dayDifference) * 0.5;
         return $minimumDownPayment;
     }
 }

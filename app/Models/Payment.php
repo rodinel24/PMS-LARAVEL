@@ -14,6 +14,7 @@ class Payment extends Model
         'transaction_id',
         'price',
         'status',
+        'created_at',
     ];
 
     public function transaction()

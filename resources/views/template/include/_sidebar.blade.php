@@ -2,19 +2,20 @@
     .dropend:hover .dropdown-menu {
         display: block;
         margin-top: 0;
+      
     }
 </style>
 <div class="" id="sidebar-wrapper">
     <div class="d-flex flex-column"
-        style="width: 4.5rem; border-top-right-radius:0.5rem; border-bottom-right-radius:0.5rem;">
+        style="width: 4.5rem; border-top-right-radius:0.5rem; border-bottom-right-radius:0.5rem; ">
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-            <li class="mb-2 bg-white rounded cursor-pointer">
+            <li class="mb-2 bg-white rounded cursor-pointer" id="dash">
                 <a href="{{ route('dashboard.index') }}"
                     class="nav-link py-3 border-bottom myBtn
                     {{ in_array(Route::currentRouteName(), ['dashboard.index', 'chart.dialyGuest']) ? 'active' : '' }}
                     "
                     data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
-                    <i class="fas fa-home"></i>
+                    <img src="icons/home.png" alt="">
                 </a>
             </li>
             @if (auth()->user()->role == 'Super' || auth()->user()->role == 'Admin')
@@ -24,7 +25,7 @@
                         {{ in_array(Route::currentRouteName(), ['payment.index', 'transaction.index', 'transaction.reservation.createIdentity', 'transaction.reservation.pickFromCustomer', 'transaction.reservation.usersearch', 'transaction.reservation.storeCustomer', 'transaction.reservation.viewCountPerson', 'transaction.reservation.chooseRoom', 'transaction.reservation.confirmation', 'transaction.reservation.payDownPayment']) ? 'active' : '' }}
                         "
                         data-bs-toggle="tooltip" data-bs-placement="right" title="Transactions">
-                        <i class="fas fa-cash-register"></i>
+                        <img src="icons/transactions.png" alt="">
                     </a>
                 </li>
                 <li class="mb-2 bg-white rounded cursor-pointer">
@@ -32,7 +33,7 @@
                     {{ in_array(Route::currentRouteName(), ['room.index', 'room.show', 'room.create', 'room.edit', 'type.index', 'type.create', 'type.edit', 'roomstatus.index', 'roomstatus.create', 'roomstatus.edit']) ? 'active' : '' }}
                         "
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-house-user"></i>
+                       <img src="icons/rooms.png" alt="">
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('room.index') }}">Room</a></li>
@@ -46,7 +47,7 @@
                         {{ in_array(Route::currentRouteName(), ['customer.index', 'customer.create', 'customer.edit', 'user.index', 'user.create', 'user.edit']) ? 'active' : '' }}
                     "
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-users"></i>
+                        <img src="icons/users.png" alt="">
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('customer.index') }}">Customer</a></li>
@@ -55,6 +56,16 @@
                         @endif
                     </ul>
                 </li>
+                <li class="mb-2 bg-white rounded cursor-pointer">
+                    <a href="{{ route('reports.index') }}"
+                        class="nav-link py-3 border-bottom border-right myBtn
+                        {{ in_array(Route::currentRouteName(), ['reports.index']) ? 'active' : '' }}
+                        "
+                        data-bs-toggle="tooltip" data-bs-placement="right" title="Reports">
+                        <img src="icons/reports.png" alt="">
+                    </a>
+                </li>
+                
             @endif
         </ul>
     </div>

@@ -96,6 +96,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <p>
+                                                
                                                 Capacity: {{ $room->capacity }}
                                             </p>
                                         </div>

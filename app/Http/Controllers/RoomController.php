@@ -79,25 +79,26 @@ class RoomController extends Controller
         ]);
     }
 
-    public function destroy(Room $room, ImageRepository $imageRepository)
+    public function destroy(Room $room, ImageRepository $imageRepository): JsonResponse
     {
         try {
             $room->delete();
-
+    
             $path = 'img/room/' . $room->number;
             $path = public_path($path);
-
-            if (is_dir($path)) {
+    
+            if (Storage::exists($path)) {
                 $imageRepository->destroy($path);
             }
-
+    
             return response()->json([
                 'message' => 'Room number ' . $room->number . ' deleted!'
             ]);
-        } catch (\Exception $e) {
+        } catch (\PDOException $e) {
             return response()->json([
-                'message' => 'Customer ' . $room->number . ' cannot be deleted! Error Code:' . $e->errorInfo[1]
+                'message' => 'Room ' . $room->number . ' cannot be deleted! Error Code:' . $e->getCode()
             ], 500);
         }
     }
+    
 }

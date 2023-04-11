@@ -18,6 +18,7 @@ use App\Http\Controllers\RoomStatusController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,23 @@ Route::group(['middleware' => ['auth', 'checkRole:Super,Admin']], function () {
     Route::resource('transaction', TransactionController::class);
     Route::resource('facility', FacilityController::class);
 
+    Route::get('/reports', [TransactionController::class, 'reports'])->name('reports.index');
+
+
+
+
+//occupancy reports
+Route::get('/occupancy-report', 'App\Http\Controllers\OccupancyReportController@index');
+
+Route::get('/revenue-report',  [TransactionController::class, 'revenue'])->name('revenue.index');
+
+
+
+
+
+
+
+
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::get('/payment/{payment}/invoice', [PaymentController::class, 'invoice'])->name('payment.invoice');
 
@@ -77,6 +95,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Super,Admin,Customer']], funct
     Route::view('/notification', 'notification.index')->name('notification.index');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

@@ -5,22 +5,47 @@
         <div class="row">
             <div class="col-lg-6 mb-3">
                 <div class="row mb-3">
+                <div class="col-lg-12">
+                        <div class="card shadow-sm border" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); margin-bottom:10px;">
+                            <div class="card-body" >
+                                <h5 style="text-align:center;"> {{ strtoupper(Helper::today()) }} </h5>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-6">
-                        <div class="card shadow-sm border" style="border-radius: 0.5rem">
+                        <div class="card shadow-sm border" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); margin-bottom:10px;">
                             <div class="card-body">
-                                <h5>{{ count($transactions) }} Guests this day</h5>
+                                <h5> Guests this day: {{ count($transactions) }} </h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="card shadow-sm border" style="border-radius: 0.5rem">
-                            <div class="card-body text-center">
-                                <h5>Dashboard</h5>
+                        <div class="card shadow-sm border" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); margin-bottom:10px;">
+                            <div class="card-body">
+                            <h5>Total Revenue: &#8369;{{ number_format($revenue, 2) }}</h5>
+
                             </div>
-                            <!-- /.info-box-content -->
                         </div>
-                        <!-- /.info-box border -->
                     </div>
+                    <div class="col-lg-6">
+                        <div class="card shadow-sm border" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); margin-bottom:10px;">
+                            <div class="card-body">
+                            <h5>Todays Revenue: &#8369;{{ number_format($todays_revenue, 2) }}</h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card shadow-sm border" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); margin-bottom:10px;">
+                            <div class="card-body">
+                            <h5>Todays Revenue: &#8369;{{ number_format($todays_revenue, 2) }}</h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                 
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-12">
@@ -28,14 +53,12 @@
                             <div class="card-header">
                                 <div class="row ">
                                     <div class="col-lg-12 d-flex justify-content-between">
-                                        <h3>Today Guests</h3>
+                                        <h3>Guests Today </h3>
                                         <div>
-                                            <a href="#" class="btn btn-tool btn-sm">
+                                            <a href="#" class="btn btn-tool btn-sm"  onclick="printPage()">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="btn btn-tool btn-sm">
-                                                <i class="fas fa-bars"></i>
-                                            </a>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +102,7 @@
                                                 <td>{{ Helper::getDateDifference(now(), $transaction->check_out) == 0 ? 'Last Day' : Helper::getDateDifference(now(), $transaction->check_out) . ' ' . Helper::plural('Day', Helper::getDateDifference(now(), $transaction->check_out)) }}
                                                 </td>
                                                 <td>
-                                                    {{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToRupiah($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
+                                                    {{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' :($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
                                                 </td>
                                                 <td>
                                                     <span
@@ -149,7 +172,7 @@
                                 </div>
                                 <div class="d-flex flex-row justify-content-between">
                                     <span class="mr-2">
-                                        <i class="fas fa-square text-primary"></i> {{ Helper::thisMonth() }}
+                                        <i class="fas fa-square text-primary"></i> {{ Helper::thisMonth()  }}
                                     </span>
                                     <span>
                                         <i class="fas fa-square text-gray"></i> Last month
@@ -181,5 +204,8 @@
                 reloadJs('style/js/guestsChart.js');
                 toastr.warning(e.message, "Hello, {{ auth()->user()->name }}");
             })
+
+       
+
     </script>
 @endsection --}}

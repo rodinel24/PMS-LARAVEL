@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- Icon --}}
-    <link rel="icon" href="{{ asset('img/logo/sip.png') }}">
+   
     {{-- style --}}
     @vite('resources/sass/app.scss')
     <title>@yield('title')</title>
@@ -19,7 +18,7 @@
     <header>
         @include('template.include._navbar')
     </header>
-    <main class="my-3">
+    <main class="my-3" style=" background: white;" >
         <!-- Modal -->
         <div class="modal fade" id="main-modal" tabindex="-1" aria-labelledby="main-modalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -40,6 +39,8 @@
         </div>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar -->
+
+            
 
             <!-- /#sidebar-wrapper -->
             @include('template.include._sidebar')
@@ -63,5 +64,6 @@
     @vite('resources/js/app.js')
     @yield('footer')
 </body>
+<script src="https://kit.fontawesome.com/966025c945.js" crossorigin="anonymous"></script>
 
 </html>

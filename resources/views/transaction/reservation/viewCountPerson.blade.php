@@ -29,8 +29,8 @@
                                         <label for="check_in" class="form-label">
                                             From
                                         </label>
-                                        <input type="date" class="form-control @error('check_in') is-invalid @enderror" id="
-                                                check_in" name="check_in" value="{{ old('check_in') }}">
+                                        <input type="date" class="form-control @error('check_in') is-invalid @enderror" id="check_in" name="check_in" value="{{ old('check_in') }}" max="{{ Carbon\Carbon::now()->addYear()->format('Y-m-d') }}">
+
                                         @error('check_in')
                                             <div class="text-danger mt-1">
                                                 {{ $message }}
@@ -39,8 +39,8 @@
                                         <label for="check_out" class="form-label">
                                             Until
                                         </label>
-                                        <input type="date" class="form-control @error('check_out') is-invalid @enderror" id="
-                                                check_out" name="check_out" value="{{ old('check_out') }}">
+                                        <input type="date" class="form-control @error('check_out') is-invalid @enderror" id="check_out" name="check_out" value="{{ old('check_out') }}" max="{{ Carbon\Carbon::now()->addYear()->format('Y-m-d') }}">
+
                                         @error('check_out')
                                             <div class="text-danger mt-1">
                                                 {{ $message }}

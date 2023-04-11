@@ -27,7 +27,7 @@
     </div>
     <div class="row my-2 mt-4 ms-1">
         <div class="col-lg-12">
-            <h5>Active Guests: </h5>
+            <h5>Arrived Guests: </h5>
         </div>
     </div>
     <div class="row">
@@ -63,12 +63,12 @@
                                         <td>{{ Helper::dateFormat($transaction->check_out) }}</td>
                                         <td>{{ $transaction->getDateDifferenceWithPlural($transaction->check_in, $transaction->check_out) }}
                                         </td>
-                                        <td>{{ Helper::convertToRupiah($transaction->getTotalPrice()) }}
+                                        <td>{{ ($transaction->getTotalPrice()) }}
                                         </td>
                                         <td>
-                                            {{ Helper::convertToRupiah($transaction->getTotalPayment()) }}
+                                            {{ ($transaction->getTotalPayment()) }}
                                         </td>
-                                        <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToRupiah($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
+                                        <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : ($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
                                         </td>
                                         <td>
                                             <a class="btn btn-light btn-sm rounded shadow-sm border p-1 m-0 {{$transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? 'disabled' : ''}}"
@@ -93,17 +93,17 @@
             </div>
         </div>
     </div>
-    <div class="row my-2 mt-4 ms-1">
+    <div class="row my-2 mt-4 ms-1" >
         <div class="col-lg-12">
-            <h5>Expired: </h5>
+            <h5>Check-out Guests: </h5>
         </div>
     </div>
-    <div class="row">
+    <div class="row" >
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" id="checkout">
                     <div class="table-responsive">
-                        <table class="table table-sm table-hover">
+                        <table class="table table-sm table-hover" >
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -131,12 +131,12 @@
                                     <td>{{ Helper::dateFormat($transaction->check_out) }}</td>
                                     <td>{{ $transaction->getDateDifferenceWithPlural($transaction->check_in, $transaction->check_out) }}
                                     </td>
-                                    <td>{{ Helper::convertToRupiah($transaction->getTotalPrice()) }}
+                                    <td>{{ ($transaction->getTotalPrice()) }}
                                     </td>
                                     <td>
-                                        {{ Helper::convertToRupiah($transaction->getTotalPayment()) }}
+                                        {{ ($transaction->getTotalPayment()) }}
                                     </td>
-                                    <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToRupiah($transaction->getTotalPrice($transaction->room->price, $transaction->check_in, $transaction->check_out) - $transaction->getTotalPayment()) }}
+                                    <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : ($transaction->getTotalPrice($transaction->room->price, $transaction->check_in, $transaction->check_out) - $transaction->getTotalPayment()) }}
                                     </td>
                                     <td>
                                         <a class="btn btn-light btn-sm rounded shadow-sm border p-1 m-0 {{$transaction->getTotalPrice($transaction->room->price, $transaction->check_in, $transaction->check_out) - $transaction->getTotalPayment() <= 0 ? 'disabled' : ''}}"
@@ -162,7 +162,37 @@
         </div>
     </div>
 
+    <style>
+        #printBtn {
+   background-color: #4CAF50;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+}
 
+    </style>
+
+    <button id="printBtn">Print</button>
+
+   <script>
+    document.getElementById("printBtn").addEventListener("click", function(){
+    var printContents = document.getElementById("checkout").innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+});
+
+   </script>
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

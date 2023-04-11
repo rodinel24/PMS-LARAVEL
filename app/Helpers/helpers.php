@@ -7,15 +7,17 @@ use Illuminate\Support\Str;
 
 class Helper
 {
-    public static function convertToRupiah($price)
+   
+    public static function today()
     {
-        $price_rupiah = "Rp. " . number_format($price, 2, ',', '.');
-        return $price_rupiah;
-    }
+        return Carbon::parse(Carbon::now())->format('F j, Y');
 
+        
+    }
+    
     public static function thisMonth()
     {
-        return Carbon::parse(Carbon::now())->format('m');
+        return Carbon::parse(Carbon::now())->format('F');
     }
 
     public static function thisYear()
@@ -30,12 +32,12 @@ class Helper
 
     public static function dateFormat($date)
     {
-        return Carbon::parse($date)->isoFormat('D MMM YYYY');
+        return Carbon::parse($date)->isoFormat('MMM D YYYY');
     }
 
     public static function dateFormatTime($date)
     {
-        return Carbon::parse($date)->isoFormat('D MMM YYYY H:m:s');
+        return Carbon::parse($date)->isoFormat('MMM D YYYY h:m A');
     }
 
     public static function dateFormatTimeNoYear($date)

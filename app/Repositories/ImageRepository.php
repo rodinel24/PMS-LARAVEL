@@ -8,29 +8,18 @@ class ImageRepository
 {
     public function uploadImage($path, $file)
     {
-        dd($path);
         if (!is_dir($path)) {
-            mkdir($path);
+            mkdir($path, 0777, true);
         }
-
-        $url = $file->getClientOriginalName();
-        $filename = pathinfo($url, PATHINFO_FILENAME);
-        $urlExtension = $file->getClientOriginalExtension();
-
-        $i = 0;
+    
+        $url = uniqid() . '.' . $file->getClientOriginalExtension();
         $fullpathfile = $path . '/' . $url;
-        while (file_exists($fullpathfile)) {
-            $i++;
-            $url = $filename . '-' . (string)$i . '.' . $urlExtension;
-            $fullpathfile = $path . '/' . $url;
-        }
-        $img = InterImage::make($file->path());
-        $img->resize(1000, 1000, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($path . '/' . $url);
-
+        
+        \Image::make($file)->fit(1000, 1000)->save($fullpathfile);
+    
         return $url;
     }
+    
 
     public function destroy($dir)
     {

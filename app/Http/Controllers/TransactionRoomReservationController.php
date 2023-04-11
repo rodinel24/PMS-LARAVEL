@@ -67,14 +67,14 @@ class TransactionRoomReservationController extends Controller
     {
         $price = $room->price;
         $dayDifference = Helper::getDateDifference($stayFrom, $stayUntil);
-        $downPayment = ($price * $dayDifference) * 0.15;
+        $downPayment = ($price * $dayDifference) * 0.5;
         return view('transaction.reservation.confirmation', compact('customer', 'room', 'stayFrom', 'stayUntil', 'downPayment', 'dayDifference'));
     }
 
     public function payDownPayment(Customer $customer, Room $room, Request $request, TransactionRepository $transactionRepository, PaymentRepository $paymentRepository)
     {
         $dayDifference = Helper::getDateDifference($request->check_in, $request->check_out);
-        $minimumDownPayment = ($room->price * $dayDifference) * 0.15;
+        $minimumDownPayment = ($room->price * $dayDifference) * 0.5;
 
         $request->validate([
             'downPayment' => 'required|numeric|gte:' . $minimumDownPayment

@@ -6,21 +6,35 @@ use App\Helpers\Helper;
 use App\Models\Payment;
 use App\Models\Transaction;
 use App\Repositories\PaymentRepository;
+use App\Repositories\TransactionRepository;
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class PaymentController extends Controller
 {
     public $paymentRepository;
+    public $transactionRepository;
 
-    public function __construct(PaymentRepository $paymentRepository)
+
+    public function __construct(PaymentRepository $paymentRepository,TransactionRepository $transactionRepository)
     {
         $this->paymentRepository = $paymentRepository;
+        $this->transactionRepository = $transactionRepository;
+
     }
 
-    public function index()
+
+    
+
+    public function index(Request $request)
+    
     {
-        $payments = Payment::orderBy('id','DESC')->paginate(5);
-        return view('payment.index', compact('payments'));
+        $payments = Payment::orderBy('id','DESC')->paginate(20);
+
+        $transactions = $this->transactionRepository->getTransaction($request);
+
+       
+        return view('payment.index', compact('payments','transactions'));
     }
 
     public function create(Transaction $transaction)
