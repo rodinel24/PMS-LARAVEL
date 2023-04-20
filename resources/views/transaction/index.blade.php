@@ -51,6 +51,7 @@
                                     <th>Paid</th>
                                     <th>Balance</th>
                                     <th>Action</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
