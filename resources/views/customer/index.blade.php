@@ -98,7 +98,7 @@
                                                                 <td><i class="fas fa-envelope"></i></td>
                                                                 <td>
                                                                     <span>
-                                                                        {{ $customer->user->email }}
+                                                                        {{ $customer->email }}
                                                                     </span>
                                                                 </td>
                                                             </tr>

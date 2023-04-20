@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Super,Admin']], function () {
         Route::post('/{customer}/{room}/payDownPayment', [TransactionRoomReservationController::class, 'payDownPayment'])->name('payDownPayment');
     });
 
+    //route
     Route::resource('customer', CustomerController::class);
     Route::resource('type', TypeController::class);
     Route::resource('room', RoomController::class);
@@ -61,6 +62,8 @@ Route::group(['middleware' => ['auth', 'checkRole:Super,Admin']], function () {
     Route::resource('facility', FacilityController::class);
 
     Route::get('/reports', [TransactionController::class, 'reports'])->name('reports.index');
+    Route::get('/guests', [CustomerController::class, 'guests'])->name('home.guest');
+    Route::get('/rates', [RoomController::class, 'roomRates'])->name('home.rates');
 
 
 

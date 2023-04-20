@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use App\Models\Payment;
 use App\Models\Customer;
+use App\Models\Room;
 use App\Repositories\TransactionRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -39,9 +40,9 @@ class TransactionController extends Controller
                                 $customers = Customer::all(); // Fetch all customers from the database
 
 
-                                //upcoming guests for tomorrow
+                                //todays guests 
                                 
-                                $date = now()->addDay();
+                                $date = now();
                                 $guests = Transaction::whereDate('check_in', '>=', $date)->get();
 
 
@@ -56,10 +57,35 @@ class TransactionController extends Controller
                                 }
                                 
                                 $guests = $query->get();
+
+                                //occupancy ratio
+                                // Retrieve the number of occupied rooms
+                                $occupiedRooms = DB::table('transactions')
+                                ->whereDate('check_in', '<=', now())
+                                ->whereDate('check_out', '>=', now())
+                                ->count();
+
+                                // Retrieve the total number of rooms in the hotel
+                                $totalRooms = Room::count();
+
+                                // Calculate the occupancy ratio
+                                if ($totalRooms > 0) {
+                                $occupancyRatio = ($occupiedRooms / $totalRooms) * 100;
+                                } else {
+                                $occupancyRatio = 0;
+                                }
+
      
-        return view('reports.index',  compact('transactions', 'transactionsExpired' , 'customers' ,'occupancyData'  , 'guests'));
+        return view('reports.index',  compact('transactions','occupancyRatio', 'transactionsExpired' , 'customers' ,'occupancyData'  , 'guests'));
     }
 
-   
+    public function calculateRemainingBalance(Transaction $transaction)
+    {
+        $totalPrice = $transaction->getTotalPrice();
+        $totalPayment = $transaction->getTotalPayment();
+        $remainingBalance = $totalPrice - $totalPayment;
+        return $remainingBalance <= 0 ? '-' : $remainingBalance;
+    }
+        
 
 }

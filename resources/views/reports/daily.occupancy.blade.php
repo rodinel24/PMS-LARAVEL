@@ -25,21 +25,17 @@
             </form>
         </div>
     </div>
-   
-   
-    <div class="container">
-        <h1>Occupancy Ratio</h1>
-
-        
-        @if ($occupancyRatio > 0)
-            <p>The current occupancy ratio is {{ ($occupancyRatio) }}%.</p>
-        @else
-            <p>No rooms are currently occupied.</p>
-        @endif
-    </div>
     <div class="row my-2 mt-4 ms-1">
         <div class="col-lg-12">
-            <h5>Daily Occupancy: </h5>
+            <h5>Occupancy Reports: </h5>
+        </div>
+    </div>
+  
+   
+
+    <div class="row my-2 mt-4 ms-1">
+        <div class="col-lg-12">
+            <h5>Upcoming Guests: </h5>
         </div>
     </div>
     <div class="row">
@@ -64,8 +60,7 @@
                                     <th>Checkin Date</th>
                                     <th>Checkout Date</th>
                                     <th>Room Number</th>
-                                    <th>Room Type</th>
-                                    
+                                                
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,8 +70,6 @@
                                     <td>{{ Helper::dateFormat($guest->check_in) }}</td>
                                     <td>{{ Helper::dateFormat($guest->check_out)}}</td>
                                     <td>{{ $guest->room->number }}</td>
-                                    <td>{{ $guest->room->type->name }}</td>
-                                   
                                 </tr>
                             @endforeach
                             </tbody>
@@ -88,43 +81,6 @@
         </div>
     </div>
 
-
-    <div class="row my-2 mt-4 ms-1">
-        <div class="col-lg-12">
-            <h5>Occupancy Reports: </h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Occupancy Count</th>
-                                        
-                                  
-                                </tr>
-                            </thead>
-                            <tbody>
-                                                    @foreach ($occupancyData as $data)
-                                        <tr>
-                                            <td>
-                                            {{ Helper::dateFormat($data->occupancy_date) }}
-                                            </td>
-                                            <td>{{ $data->occupancy_count }}</td>
-                                        </tr>
-                                    @endforeach
-                            </tbody>
-                        </table>
-                        {{ $transactions->onEachSide(2)->links('template.paginationlinks') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
  

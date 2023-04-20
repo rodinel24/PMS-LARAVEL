@@ -27,7 +27,7 @@
     </div>
     <div class="row my-2 mt-4 ms-1">
         <div class="col-lg-12">
-            <h5>Arrived Guests: </h5>
+            <h5>Reservations: </h5>
         </div>
     </div>
     <div class="row">
@@ -40,14 +40,16 @@
                                 <tr>
                                     <th>#</th>
                                     <th>ID</th>
-                                    <th>Customer</th>
-                                    <th>Room</th>
+                                    <th>Guest Name</th>
+                                    <th>Email</th>
+                                    <th>Room Number</th>
+                                    <th>Room Type</th>
                                     <th>Check In</th>
                                     <th>Check Out</th>
                                     <th>Days</th>
                                     <th>Total Price</th>
-                                    <th>Paid Off</th>
-                                    <th>Debt</th>
+                                    <th>Paid</th>
+                                    <th>Balance</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -58,7 +60,9 @@
                                         </th>
                                         <td>{{ $transaction->id }}</td>
                                         <td>{{ $transaction->customer->name }}</td>
+                                        <td>{{ $transaction->customer->user->email }}</td>
                                         <td>{{ $transaction->room->number }}</td>
+                                        <td>{{ $transaction->room->type->name }}</td>
                                         <td>{{ Helper::dateFormat($transaction->check_in) }}</td>
                                         <td>{{ Helper::dateFormat($transaction->check_out) }}</td>
                                         <td>{{ $transaction->getDateDifferenceWithPlural($transaction->check_in, $transaction->check_out) }}
@@ -93,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div class="row my-2 mt-4 ms-1" >
+    <!-- <div class="row my-2 mt-4 ms-1" >
         <div class="col-lg-12">
             <h5>Check-out Guests: </h5>
         </div>
@@ -157,10 +161,10 @@
                         </table>
                         {{ $transactions->onEachSide(2)->links('template.paginationlinks') }}
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
-    </div>
+    </div>-->
 
     <style>
         #printBtn {

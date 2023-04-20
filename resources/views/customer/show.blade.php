@@ -13,6 +13,8 @@
                     </div>
                     <div class="col-md-8 p-4 ps-md-0">
                         <h5 class="mt-0">{{ $customer->job }}</h5>
+                        <h5 class="mt-0">{{ $customer->user->email }}</h5>
+
                         <p> {{ $customer->address }} </p>
                     </div>
                 </div>

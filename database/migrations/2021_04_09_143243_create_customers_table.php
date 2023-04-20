@@ -18,8 +18,8 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->enum('gender',['Male', 'Female']);
-            $table->string('job');
             $table->date('birthdate');
+            $table->date('job');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
@@ -33,5 +33,6 @@ class CreateCustomersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('customers');
+        
     }
 }

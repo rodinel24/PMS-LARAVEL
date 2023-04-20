@@ -28,6 +28,16 @@ class RoomController extends Controller
         }
         return view('room.index');
     }
+    
+    public function roomRates(Request $request)
+    {
+        if ($request->ajax()) {
+            return $this->roomRepository->getRoomsDatatable($request);
+        }
+        $rooms = $this->roomRepository->getRooms($request);
+        return view('home.roomrates', compact('rooms'));
+    }
+
 
     public function create()
     {
