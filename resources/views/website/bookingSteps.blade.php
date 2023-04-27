@@ -7,22 +7,23 @@
 </head>
 <body>
   
+
 <header class="d-flex justify-content-between align-items-center">
   <div class="logo">
     <!-- Insert your company logo here -->
-    <a href="{{ route('home') }}">
-      <img src="images/logoHotel.png" alt="logo">
-    </a>
+    <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
+
   </div>
-  <div class="details text-center">
-    <h1>Your Company Name</h1>
-    <p>123 Main Street, Anytown USA</p>
-    <p>Phone: 555-123-4567</p>
-    <p>Email: info@yourcompany.com</p>
+  <div class="details text-start">
+    <h1>Dr. Magadapa Ali Ringia Hotel</h1>
+    <p>MSU-MSAT, Maigo, Lanao del Norte, Philippines, 9206</p>
+    <p>Telephone Number: 227-4208</p>
+    <p>Email: <i>Dr.magadapaaliringia@gmail.com</i></p>
   </div>
   <div class="bullet">
     <ul class="list-unstyled">
-      <li>Select Date & Room</li>
+    <li><em style="color:white;"> <strong><u>Select Date & Room</u></strong>- Confirmation</em></li>
+
     </ul>
   </div>
 </header>
@@ -34,7 +35,7 @@
  
 <div class="book">
   <!-- action="{{route('reservations.store')}}" method="POST" -->
-  <form class="book-form" action="{{ route('reservations.store') }}" method="POST">
+  <form class="book-form" method="POST" action="/check-availability">
 
 
 @csrf
@@ -63,61 +64,95 @@
 </div>
 
 </div>
+
+
 <div class="red-container">
 
 
-<!-- <div class="container">
-    <div class="main-div">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, consequuntur.</p>
-      <div class="room-data">
-        <div class="d-flex align-items-normal">
-          <img src="images/pixel_single.png" class="images mr-3" alt="Sample Picture">
-          <h3><u>Single Room<br> nonsense</u></h3>
-        </div>
-      </div>
-      <div class="room-data">
-        <div class="d-flex align-items-center">
-          <img src="images/pixel_double.png" alt="Sample Picture" class="images mr-3" >
-          <h3><u>Double Room<br> nonsense</u></h3>
-        </div>
-      </div>
-      <div class="room-data">
-        <div class="d-flex align-items-center">
-          <img src="images/pixel_family.png" alt="Sample Picture" class="images mr-3" >
-          <h3><u>Family Room<br> nonsense</u></h3>
-        </div>
-      </div>
-      <div class="room-data">
-        <div class="d-flex align-items-center">
-          <img src="images/pixel_function.png" alt="Sample Picture" class= " images mr-3" >
-          <h3><u>Function Hall<br> nonsense</u></h3>
-        </div>
-      </div>
-    </div> -->
 
-    <div class="holy-grail">
+    <div class="holy-grail text-center">
      
-    <header > <h4 id="title">AVAILABLE ROOMS</h4></header>
+    <h4 id="title"><u>AVAILABLE ROOMS</u></h4>
+   
+
+    
+
+  
+
     <main class="holy-grail__main">
         <!-- Left sidebar -->
-        <aside class="holy-grail__left"></aside>
+        <aside class="holy-grail__left"><img src="images/okir.png" style = "width:200px; height: 1400px"></aside>
+        
+        
 
         <!-- Main content -->
         
         <article class="holy-grail__middle"><div class="container">
     <div class="main-div">  
+      
       <div class="room-data">
         <div class="d-flex align-items-normal ">
           <img src="images/pixel_single.png" class="images mr-3" alt="Sample Picture">
           <div class="d-flex align-items-start flex-column" style="margin-top:5%; margin-left:5%;">
-            <h5><u>Single Room</u></h5>
-            <p>Room Size: 30 SQM View: City, Ocean</p>
-            <p>Max. 2 Adult(s)</p>
-            <p>Best Available Rate 450 <button type="button" class="btn btn-primary">Add</button></p>
+          <h5><u><strong>Single Room</strong></u></h5>
+          <p>Room Size: <i>30 SQM</i> View: <i>City Ocean</i></p>
+            <p><em>Max. 2 Adult(s)</em></p>
+            <style>
+              header{
+
+    
+              }
+  .btn-primary {
+    background-color: #0F1521;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+  }
+
+  .btn-primary:hover {
+    background-color: white;
+color: black;
+  }
+  body{
+
+
+  }
+</style>
+
+<p>Best Available Rate: <strong>450</strong> <button type="button" class="btn btn-primary"> <strong>+ADD</strong> </button></p>
+
                                           <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                More Details
-                              </button>
+                                          <style>
+ .btn-danger {
+background-color:white;
+border: none;
+color: #0F1521;
+padding: 12px 24px;
+text-align: center;
+text-decoration: underline;
+display: inline-block;
+font-size: 16px;
+border-radius: 7px;
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+transition: background-color 0.3s ease;
+}
+
+  .btn-danger:hover {
+background-color: white;
+color: black;
+}
+</style>
+
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4"> <strong>More Details</strong> </button>
+
 
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -131,7 +166,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <img src="images/pixel_single.png" alt="">
-                                      <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minus quis voluptatibus laborum distinctio non ullam cum! Eius ullam nostrum natus ipsa nemo distinctio porro, incidunt totam enim quae odio ea doloribus quaerat! Temporibus voluptatibus consectetur ea quis saepe consequatur, veniam iure necessitatibus consequuntur nisi quia accusamus perferendis laboriosam explicabo error adipisci dolores illum dignissimos, aspernatur amet optio. Magnam dolore eligendi error a commodi? Eveniet distinctio repellat temporibus quasi nemo modi eius sequi tempore minus natus eaque ex omnis dicta, reprehenderit aliquid fuga quibusdam aspernatur consequatur animi maxime nostrum iusto cum porro! Fugiat doloribus consectetur quae, at dignissimos repudiandae magnam? consectetur adipisicing elit. Enim ad animi, nostrum quia facilis illum et pariatur quos at deserunt voluptate numquam accusamus accusantium praesentium eligendi? Laudantium aut, odio nostrum iusto, animi unde illo culpa, eligendi eius impedit maxime ut!</p>
+                                      <p>Lorem</p>
                                     </div>
                                     <div class="modal-footer">
                                     </div>
@@ -147,15 +182,12 @@
         <div class="d-flex align-items-center">
           <img src="images/pixel_double.png" alt="Sample Picture" class="images mr-3" >
           <div class="d-flex align-items-start flex-column" style="margin-top:5%; margin-left:5%;">
-            <h5><u>Single Room</u></h5>
-            <p>Room Size: 30 SQM View: City, Ocean</p>
-            <p>Max. 2 Adult(s)</p>
-            <p>Best Available Rate 450 <button type="button" class="btn btn-primary">Add</button></p>
+          <h5><u><strong>Double Bedroom</strong></u></h5>
+          <p>Room Size: <i>30 SQM</i> View: <i>City Ocean</i></p>
+            <p><em>Max. 2 Adult(s)</em></p>
+            <p>Best Available Rate: <strong>450</strong> <button type="button" class="btn btn-primary"> <strong>+ADD</strong> </button></p>
                    <!-- Button trigger modal -->
-                   <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                More Details
-                              </button>
-
+                   <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4"> <strong>More Details</strong> </button>
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 
@@ -168,7 +200,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <img src="images/pixel_single.png" alt="">
-                                      <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minus quis voluptatibus laborum distinctio non ullam cum! Eius ullam nostrum natus ipsa nemo distinctio porro, incidunt totam enim quae odio ea doloribus quaerat! Temporibus voluptatibus consectetur ea quis saepe consequatur, veniam iure necessitatibus consequuntur nisi quia accusamus perferendis laboriosam explicabo error adipisci dolores illum dignissimos, aspernatur amet optio. Magnam dolore eligendi error a commodi? Eveniet distinctio repellat temporibus quasi nemo modi eius sequi tempore minus natus eaque ex omnis dicta, reprehenderit aliquid fuga quibusdam aspernatur consequatur animi maxime nostrum iusto cum porro! Fugiat doloribus consectetur quae, at dignissimos repudiandae magnam? consectetur adipisicing elit. Enim ad animi, nostrum quia facilis illum et pariatur quos at deserunt voluptate numquam accusamus accusantium praesentium eligendi? Laudantium aut, odio nostrum iusto, animi unde illo culpa, eligendi eius impedit maxime ut!</p>
+                                      <p>Lorem</p>
                                     </div>
                                     <div class="modal-footer">
                                     </div>
@@ -182,15 +214,12 @@
         <div class="d-flex align-items-center">
           <img src="images/pixel_family.png" alt="Sample Picture" class="images mr-3" >
           <div class="d-flex align-items-start flex-column" style="margin-top:5%; margin-left:5%;">
-            <h5><u>Single Room</u></h5>
-            <p>Room Size: 30 SQM View: City, Ocean</p>
-            <p>Max. 2 Adult(s)</p>
-            <p>Best Available Rate 450 <button type="button" class="btn btn-primary">Add</button></p>
+          <h5><u><strong>Family Bedroom</strong></u></h5>
+          <p>Room Size: <i>30 SQM</i> View: <i>City Ocean</i></p>
+            <p><em>Max. 2 Adult(s)</em></p>
+            <p>Best Available Rate: <strong>450</strong> <button type="button" class="btn btn-primary"> <strong>+ADD</strong> </button></p>
              <!-- Button trigger modal -->
-             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                More Details
-                              </button>
-
+             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4"> <strong>More Details</strong> </button>
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 
@@ -203,7 +232,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <img src="images/pixel_single.png" alt="">
-                                      <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minus quis voluptatibus laborum distinctio non ullam cum! Eius ullam nostrum natus ipsa nemo distinctio porro, incidunt totam enim quae odio ea doloribus quaerat! Temporibus voluptatibus consectetur ea quis saepe consequatur, veniam iure necessitatibus consequuntur nisi quia accusamus perferendis laboriosam explicabo error adipisci dolores illum dignissimos, aspernatur amet optio. Magnam dolore eligendi error a commodi? Eveniet distinctio repellat temporibus quasi nemo modi eius sequi tempore minus natus eaque ex omnis dicta, reprehenderit aliquid fuga quibusdam aspernatur consequatur animi maxime nostrum iusto cum porro! Fugiat doloribus consectetur quae, at dignissimos repudiandae magnam? consectetur adipisicing elit. Enim ad animi, nostrum quia facilis illum et pariatur quos at deserunt voluptate numquam accusamus accusantium praesentium eligendi? Laudantium aut, odio nostrum iusto, animi unde illo culpa, eligendi eius impedit maxime ut!</p>
+                                      <p>Lorem</p>
                                     </div>
                                     <div class="modal-footer">
                                     </div>
@@ -217,14 +246,12 @@
         <div class="d-flex align-items-center">
           <img src="images/pixel_function.png" alt="Sample Picture" class= " images mr-3" >
           <div class="d-flex align-items-start flex-column" style="margin-top:5%; margin-left:5%;">
-            <h5><u>Single Room</u></h5>
-            <p>Room Size: 30 SQM View: City, Ocean</p>
-            <p>Max. 2 Adult(s)</p>
-            <p>Best Available Rate 450 <button type="button" class="btn btn-primary">Add</button></p>
+          <h5><u><strong>Function Hall</strong></u></h5>
+          <p>Function Hall Size: <i>30 SQM</i> View: <i>City Ocean</i></p>
+            <p><em>Max. 2 Adult(s)</em></p>
+            <p>Best Available Rate: <strong>450</strong> <button type="button" class="btn btn-primary"> <strong>+ADD</strong> </button></p>
              <!-- Button trigger modal -->
-             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                More Details
-                              </button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4"> <strong>More Details</strong> </button>
 
                               <!-- Modal -->
                               <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -238,7 +265,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <img src="images/pixel_single.png" alt="">
-                                      <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minus quis voluptatibus laborum distinctio non ullam cum! Eius ullam nostrum natus ipsa nemo distinctio porro, incidunt totam enim quae odio ea doloribus quaerat! Temporibus voluptatibus consectetur ea quis saepe consequatur, veniam iure necessitatibus consequuntur nisi quia accusamus perferendis laboriosam explicabo error adipisci dolores illum dignissimos, aspernatur amet optio. Magnam dolore eligendi error a commodi? Eveniet distinctio repellat temporibus quasi nemo modi eius sequi tempore minus natus eaque ex omnis dicta, reprehenderit aliquid fuga quibusdam aspernatur consequatur animi maxime nostrum iusto cum porro! Fugiat doloribus consectetur quae, at dignissimos repudiandae magnam? consectetur adipisicing elit. Enim ad animi, nostrum quia facilis illum et pariatur quos at deserunt voluptate numquam accusamus accusantium praesentium eligendi? Laudantium aut, odio nostrum iusto, animi unde illo culpa, eligendi eius impedit maxime ut!</p>
+                                      <p>Lorem </p>
                                     </div>
                                     <div class="modal-footer">
                                     </div>
@@ -251,7 +278,7 @@
     </div></article>
 
         <!-- Right sidebar -->
-        <nav class="holy-grail__right"></nav>
+        <aside class="holy-grail__right"><img src="images/okir.png" style = "width:200px; height: 1400px"></aside>
     </main>
     <footer>...</footer>
 </div>

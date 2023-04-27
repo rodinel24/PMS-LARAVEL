@@ -31,10 +31,14 @@
    </head>
    <!-- body -->
    <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
+       <!-- loader  -->
+       <div class="loader_bg">
+      <div class="loader">
+  <img src="images/loading.gif" style="height:50px; width:50px" alt="#">
+</div>
+
       </div>
+        
       <!-- end loader -->
       <!-- header -->
       <header>
@@ -46,7 +50,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                           <a href="{{ route('home') }}"><img src="images/logoHotel.png" alt="#" /></a>
+                           <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -59,7 +63,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item ">
-                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
+                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                               </li>
                               <li class="nav-item active">
                                  <a class="nav-link" href="{{ route('about') }}">About</a>
@@ -71,11 +75,9 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
                               </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-                              </li>
+                           
                               <li class="nav-item ">
-                                 <a class="nav-link" href="{{ url('login') }}">PMS</a>
+                                 <a class="nav-link" href="{{url('/login')}}">PMS</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
@@ -108,13 +110,14 @@
                <div class="col-md-5">
                   <div class="titlepage">
                     
-                     <p class="margin_0">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum. </p>
+                     <p class="margin_0">
+The Dr. Magadapa Ali Ringia Hotel was named after the late superintendent of the Mindanao State University—Maigo School of Arts and Trades, Sultan Gaos Magadapa Ali Ringia, because of the legacy of the late superintendent of the campus. The original name of the hotel was Sultan Gaos Magadapa Ali Ringia Memorial Building, but it was changed into Dr. Magadapa Ali Ringia Hotel, and the hotel is commonly known as MSU-MSAT Hotel. </p>
                      <a class="read_more" href="Javascript:void(0)"> Read More</a>
                   </div>
                </div>
                <div class="col-md-7">
                   <div class="about_img">
-                     <figure><img src="images/about.png" alt="#"/></figure>
+                     <figure ><img style="border-radius:10px;" src="images/hotelmsat.jpg" alt="#"/></figure>
                   </div>
                </div>
             </div>

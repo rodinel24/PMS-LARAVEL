@@ -181,16 +181,15 @@ text-align:center;
 <header>
   <div class="logo">
     <!-- Insert your company logo here -->
-    <a href="{{ route('home') }}">
-      <img src="images/logoHotel.png" alt="logo">
-    </a>
+    <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
+
 
   </div>
   <div class="details">
-    <h1>Your Company Name</h1>
-    <p>123 Main Street, Anytown USA</p>
-    <p>Phone: 555-123-4567</p>
-    <p>Email: info@yourcompany.com</p>
+  <h1>Dr. Ringia Hotel Website</h1>
+    <p>Maigo, Lanao del Norte</p>
+    <p>Phone Number</p>
+    <p>Email: <i>Dr.magadapaaliringia@gmail.com</i></p>
   </div>
 
   <div class="bullet">

@@ -31,10 +31,14 @@
    </head>
    <!-- body -->
    <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
+       <!-- loader  -->
+       <div class="loader_bg">
+      <div class="loader">
+  <img src="images/loading.gif" style="height:50px; width:50px" alt="#">
+</div>
+
       </div>
+        
       <!-- end loader -->
       <!-- header -->
       <header>
@@ -46,7 +50,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                           <a href="{{ route('home') }}"><img src="images/logoHotel.png" alt="#" /></a>
+                           <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -59,7 +63,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item ">
-                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
+                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('about') }}">About</a>
@@ -70,11 +74,9 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
                               </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-                              </li>
+                          
                               <li class="nav-item ">
-                                 <a class="nav-link" href="{{ url('login') }}">PMS</a>
+                                 <a class="nav-link" href="{{url('/login')}}">PMS</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
@@ -145,7 +147,6 @@
                      </div>
                      <div class="blog_room">
                         <h3>Single Bedroom</h3>
-                        <span>The standard chunk </span>
                         <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
                          <!-- modal -->
                               <!-- Button trigger modal -->
@@ -202,7 +203,6 @@
                      </div>
                      <div class="blog_room">
                         <h3>Double Bedroom</h3>
-                        <span>The standard chunk </span>
                         <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
 
                          <!-- modal -->
@@ -261,7 +261,6 @@
                      </div>
                      <div class="blog_room">
                         <h3>Family Bedroom</h3>
-                        <span>The standard chunk </span>
                         <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
                               <!-- modal -->
                               <!-- Button trigger modal -->
@@ -338,7 +337,6 @@
                      </div>
                      <div class="blog_room" id="text">
                         <h3>Single Bedroom</h3>
-                        <span>The standard chunk </span>
                         <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
                          <!-- modal -->
                               <!-- Button trigger modal -->

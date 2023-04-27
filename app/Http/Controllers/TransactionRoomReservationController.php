@@ -33,6 +33,10 @@ class TransactionRoomReservationController extends Controller
         $customersCount = $customerRepository->count($request);
         return view('transaction.reservation.pickFromCustomer', compact('customers', 'customersCount'));
     }
+    public function bookingStep (Customer $customer)
+    {
+        return view ('website.bookingSteps', compact('customer'));
+    }
 
     public function createIdentity()
     {

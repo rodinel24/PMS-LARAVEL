@@ -46,7 +46,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                           <a href="{{ route('home') }}"><img src="images/logoHotel.png" alt="#" /></a>
+                           <a href="{{ url('/') }}"><img src="images/logoHotel.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>

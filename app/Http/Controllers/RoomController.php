@@ -109,6 +109,27 @@ class RoomController extends Controller
                 'message' => 'Room ' . $room->number . ' cannot be deleted! Error Code:' . $e->getCode()
             ], 500);
         }
+
+        
     }
+    //room availability function 
+    // public function checkAvailability(Request $request)
+    // {
+    //     $checkin = $request->input('checkinDate');
+    //     $checkout = $request->input('checkoutDate');
+    
+    //     // Query the database to get available rooms for the given date range
+    //     $availableRooms = Room::whereDoesntHave('transactions', function ($query) use ($checkin, $checkout) {
+    //         $query->where(function ($q) use ($checkin, $checkout) {
+    //             $q->where('checkinDate', '<', $checkout)
+    //               ->where('checkoutDate', '>', $checkin);
+    //         });
+    //     })->get();
+    
+    //     // Pass the available rooms to the view
+    //     return view('availability', ['availableRooms' => $availableRooms]);
+    // }
+    
+
     
 }

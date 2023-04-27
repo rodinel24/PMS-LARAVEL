@@ -33,8 +33,12 @@
    <body class="main-layout">
       <!-- loader  -->
       <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
+      <div class="loader">
+  <img src="images/loading.gif" style="height:50px; width:50px" alt="#">
+</div>
+
       </div>
+        
       <!-- end loader -->
      <!-- header -->
      <header>
@@ -46,7 +50,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo" >
-                              <a href="{{ route('home') }}"><img src="images/logoHotel.png" alt="#" /></a>
+                           <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -59,7 +63,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto" id="anchor">
                               <li class="nav-item " >
-                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
+                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('about') }}">About</a>
@@ -71,11 +75,9 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
                               </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-                              </li>
+                             
                               <li class="nav-item ">
-                                 <a class="nav-link" href="{{ url('login') }}">PMS</a>
+                                 <a class="nav-link" href="{{url('/login')}}">PMS</a>
                               </li>
                               <li class="nav-item active">
                                  <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
@@ -129,8 +131,8 @@
                <div class="col-md-6">
                   <div class="map_main">
                      <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                     </div>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.407237165208!2d123.9580786142725!3d8.161661204217351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3255af4c40add5a3%3A0xdeea30d97c53dad6!2sMindanao%20State%20University%20%E2%80%93%20Maigo%20School%20of%20Arts%20and%20Trades!5e0!3m2!1sen!2sph!4v1679275255508!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                       </div>
                   </div>
                </div>
             </div>

@@ -123,19 +123,18 @@
   <header id="header" class="d-flex justify-content-between align-items-center">
   <div class="logo">
     <!-- Insert your company logo here -->
-    <a href="{{ route('home') }}">
-      <img src="images/logoHotel.png" alt="logo">
-    </a>
+    <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
+
   </div>
-  <div class="text-center">
-    <h1 class="mb-3">Your Company Name</h1>
-    <p class="mb-3">123 Main Street, Anytown USA</p>
-    <p class="mb-3">Phone: 555-123-4567</p>
-    <p class="mb-3">Email: info@yourcompany.com</p>
+  <div class="text-start">
+  <h1>Dr. Magadapa Ali Ringia Hotel</h1>
+    <p>MSU-MSAT, Maigo, Lanao del Norte, Philippines, 9206</p>
+    <p>Telephone Number: 227-4208</p>
+    <p>Email: <i>Dr.magadapaaliringia@gmail.com</i></p>
   </div>
   <div class="bullet">
     <ul class="list-unstyled mb-3">
-      <li>Select Date &amp; Room</li>
+    <li><em style="text-shadow: 1px 1px 2px #000000;"> Select Date & Room -<strong><u> Confirmation</u></em></li>
     </ul>
   </div>
 </header>
@@ -149,6 +148,17 @@
       <h2>Checkout form</h2>
       <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
     </div>
+    
+@if ($available_rooms->count() > 0)
+    <h2>Available Rooms:</h2>
+    <ul>
+        @foreach ($available_rooms as $room)
+            <li>Room {{ $room->number }} - {{ $room->description }}</li>
+        @endforeach
+    </ul>
+@else
+    <p>No rooms available for the selected dates.</p>
+@endif
 
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
@@ -297,12 +307,9 @@
           <div class="my-3">
             <div class="form-check">
               <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-              <label class="form-check-label" for="credit">Credit card</label>
+              <label class="form-check-label" for="credit">ATM card</label>
             </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">Debit card</label>
-            </div>
+          
             <div class="form-check">
               <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
               <label class="form-check-label" for="paypal">Gcash</label>

@@ -37,9 +37,14 @@
                             </div>
                         </div>
                         <div class="row">
+                        <div class="logo" style="padding: 5px; border-radius: 10px; text-align:center;">
+                        <img src="img/logo/logo.png" alt="#" style="height: 9.5em; width: auto; border-radius: 10px; margin-top: -32px;">
+                        </div>
+
                             <div class="col-lg-12">
                                 <h5 class="card-title text-center">Property Management System</h5>
                             </div>
+                            
                         </div>
                         <form onsubmit="return disableButton()" class="form-signin" action="/postLogin" method="POST">
                             @csrf
