@@ -342,13 +342,25 @@ button {
      position: absolute;
      width: 100%;
      top: 50%;
-     transform: translateY(-50%);
+     transform: translateY(-40%);
+}
+.bookNow{
+     border-radius: 20px;
+          background-color: red;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          outline: none;
+        
+
 }
 
 .book_room {
      background-color: #000000c7;
-     padding: 30px 35px;
+     padding: 20px 20px;
      border-left: #ff0909 solid 5px;
+     border-radius: 20px;
+
 }
 
 .book_room h1 {
@@ -907,6 +919,21 @@ video {
      margin-top: -25px; /* adjust as needed */
    
    }
+
+   /* logo img style */
+.logomsat{
+     padding: 5px;
+     border-radius: 10px;
+ }
+ .logomsat img {
+      height: 6.5em;
+      width: auto;
+      border-radius: 10px;
+      margin-top: -36px; /* adjust as needed */
+    
+    }
+
+   
 
 .blog .titlepage p {
      color: #fff;

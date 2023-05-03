@@ -9,6 +9,7 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
       <title>Dr. Ringia Hotel Website</title>
+      <link rel="icon" href="img/logo/logo.png" type="png">
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -57,10 +58,11 @@
                            <a href="{{ url('/') }}"><img src="img/logo/logo.png" alt="#" /></a>
 
                            </div>
+                          
                         </div>
                      </div>
                   </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                  <div class="col-xl-7 col-lg-9 col-md-9 col-sm-9">
                      <nav class="navigation navbar navbar-expand-md navbar-dark ">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -85,14 +87,31 @@
                                  <a class="nav-link" href="{{url('/login')}}">PMS</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
+                                 <a class="nav-link" href="{{ route('contact') }}">About</a>
                               </li>
                            </ul>
                         </div>
-                     </nav>
+                           
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logomsat_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logomsat" >
+                           <a href="{{ url('/') }}"><img src="img/logo/msatlogo.png" alt="#" /></a>
+
+                           </div>
+                          
+                        </div>
+                     </div>
                   </div>
+                     </nav>
+                    
+                    
+                  </div>
+                
+                 
                </div>
             </div>
+            
          </div>
       </header>
       <!-- end header inner -->
@@ -109,11 +128,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-5">
-        <div class="book_room">
-          <h1>Online Reservation</h1>
+      <div class="book_room" style="display: inline-block;">
+        <h1>Online Reservation</h1>
           <form class="book_now">
             <div class="text-center col-md-12">
-              <a class="btn text-center btn-danger" href="{{ route('bookingSteps') }}">Book Now</a>
+              <a class="btn text-center btn-danger bookNow" href="{{ route('bookingSteps') }}">Book Now</a>
             </div>
           </form>
         </div>
